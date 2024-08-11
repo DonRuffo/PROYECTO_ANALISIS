@@ -149,9 +149,85 @@ Examinar un dataset de 114000 canciones que han sido subidas a la plataforma de 
 Inicialmente, se realizó una búsqueda de los Datasets con la información necesaria para el desarrollo de este proyecto, las fuentes usadas para su recolección fueron páginas y repositorios web como Kaggle, Google Data Search, UCI Machine Learning Repository y AWS Public Datasets. A continuación, se realizó la importación de los archivos a las extensiones correctas que permitían los SGBD elegidos por el equipo de trabajo, los cuales fueron CouchDB, MongoDB, MySQL y SQLite. Los Datasets obtenidos son los que se muestran a continuación:
 
 ![App Screenshot](https://github.com/user-attachments/assets/78d8a482-34e0-4df2-8ff4-4b764daa6385)
+.
 
 
-#### Importación de datos desde MySQL:
+### Importación de datos de tablas MySQL:
+
+#### Conexión a MySQL
+
+![App Screenshot](https://github.com/user-attachments/assets/ac614dd0-9836-4eb2-b03c-eb99fcf25be1)
+.
+
+#### Importación de las tablas a Dataframes
+![App Screenshot](https://github.com/user-attachments/assets/3d2ae69d-db73-40aa-bf58-b481f0aeb3a7)
+.
 
 
+### Importación de datos de MongoDB
 
+#### Conexión a MongoDB y creación de una base de datos
+![App Screenshot](https://github.com/user-attachments/assets/053c5698-bcef-47c0-a4f9-ed87988879cc)
+.
+
+#### Importación y conversión a CSV de los datos en las colecciones de MongoDB sobre la base creada
+![App Screenshot](https://github.com/user-attachments/assets/39ea7307-ab31-41e5-a2fe-cb4ecd482fc4)
+.
+
+### Extracción de los datos
+
+Mediante Jupyter Notebbok con Python se realiza la carga de los archivos a este entorno para su posterior análisis y tratamiento con la ayuda de algunas de las librerías que provee este lenguaje de programación (como pandas, sqlalchemy, pymysql, pyodbc, pymongo, entre otras más). En esta ocasión el IDE recibirá archivos de tipo para su estudio y conversión.
+
+#### Extracción de los archivos CSV
+![App Screenshot](https://github.com/user-attachments/assets/e7426bce-24a6-4597-90a5-5f3ef01f5e78)
+.
+
+#### Verificación de la carga exitosa de los archivos a Jupyter Notebook
+
+![App Screenshot](https://github.com/user-attachments/assets/a9576817-5fbe-4484-acc1-fcd11a70334e)
+.
+
+### Análisis de la información
+Luego de llevar los archivos a Jupyter se realiza un exhaustivo análisis para verificar la consistencia e integridad de los dataframes recientemente creados. En esta etapa se examina si existen campos con datos vacíos o nulos, de ser así, se los identifica. Esto es importante ya que si un campo se encuentra en este estado (nulo) puede afectar a la transformación de datos y la creación de información y conocimiento en las siguientes etapas. Posteriormente, se realiza una limpieza de los dataframes identificados con el fin de llenar aquellos campos nulos, asegurando así la calidad y consistencia de la información recopilada.
+
+#### Identificación de campos vacíos en uno de los Dataframes (verdadero)
+![App Screenshot](https://github.com/user-attachments/assets/e3e15ceb-5ae6-429c-b68f-19a44304e8c8)
+.
+
+#### Reemplazo de los campos vacíos por un valor y nueva verificación.
+![App Screenshot](https://github.com/user-attachments/assets/119dcf2d-3800-41e2-a794-751bd8e646d2)
+.
+
+#### Creación de Dataframes de cada CSV leído
+![App Screenshot](https://github.com/user-attachments/assets/05eecc04-99cc-4461-ad16-e225f0a973e5)
+.
+
+#### Exportación de los Dataframes a MongoDB por cada colección
+![App Screenshot](https://github.com/user-attachments/assets/1de5b973-dbf5-47e8-a461-00225d98e482)
+
+.
+
+#### Exportación de archivos a MySQL
+![App Screenshot](https://github.com/user-attachments/assets/b71ad986-6e3d-46cb-9e34-e2b683d16594)
+.
+
+### Conexión y envío de la información a SQL Server
+
+Luego de la depuración correcta de los dataframes y la revisión en la estructura e integridad de estos, se crea la conexión a el repositorio final de estos datos, que en el proyecto presente será Microsoft SQL Server. Para ello se ejecutó una serie de instrucciones en Python dentro de Jupyter haciendo uso de las librerías pyodbc, sqlalchemy y pandas.
+Previo a el envío de las tablas a SQL Server, se crea una base de datos para almacenar estas, utilizando SQL Server Management Studio.
+
+#### Creación de la Base de Datos para el alojamiento de los dataframes
+![App Screenshot](https://github.com/user-attachments/assets/d5cd369c-faab-415a-bb35-3c9684326a1c)
+.
+
+#### Conexión a SQL Server y la base de datos creada
+![App Screenshot](https://github.com/user-attachments/assets/807e1742-d29d-4f8a-8d73-583ade6122be)
+.
+
+#### Ejecución de instrucciones para creación de tablas en SQL Server, una tabla por Dataframe
+![App Screenshot](https://github.com/user-attachments/assets/59bc4309-5082-4b22-a9dc-7cae247b2c6f)
+.
+
+#### Verificación de éxito en SQL Server Management Studio
+![App Screenshot](https://github.com/user-attachments/assets/bbea4bef-11ec-42ee-a00c-b813b6aef3aa)
+.
