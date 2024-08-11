@@ -26,7 +26,7 @@ phish=pd.read_csv('phish.csv')
 spotify=pd.read_csv('Spotify_songs/Spotify_songs.csv')
 
 
-#vaerificación de la integridad de los datos y limpieza
+#verificación de la integridad de los datos y limpieza
 fifa.isnull().sum() #limpiado
 juegos.isnull().sum()
 juegos_rellenados=juegos.fillna("0")
