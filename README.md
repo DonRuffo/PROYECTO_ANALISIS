@@ -8,7 +8,7 @@ El presente proyecto fue creado para recopilar datos de temas en categorías com
 ## Autores
 
 - [@DennisDiaz](https://www.github.com/DonRuffo)
-- [@MartinAyala](https://www.github.com/DonRuffo)
+- [@MartinAyala](https://github.com/MartinXde23)
 - [@LadyMarin](https://www.github.com/DonRuffo)
 
 ## Recursos o herramientas utlizadas
