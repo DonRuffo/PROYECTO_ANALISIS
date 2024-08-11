@@ -5,6 +5,7 @@ from pandas.io import sql
 from scipy import stats
 import pymysql
 from datetime import datetime, date
+import pymongo as pm
 
 
 #Conexión a SQL Server
@@ -85,3 +86,26 @@ fooo_rellenado.to_sql('Comida_rapida_restaurantes',  con=conexion, index=False)
 huff_rellenado.to_sql('HuffPots',  con=conexion, index=False)
 phish_rellenado.to_sql('Phish_Banda', con=conexion, index=False)
 spotify_rellenado.to_sql('Spotify_songs', con=conexion, index=False)
+
+#importación de datos a MONGODB 
+cliente=pm.MongoClient('mongodb://localhost:27017')
+db=cliente['DATALAKE']
+df1=pd.DataFrame(fifa)
+df2=pd.DataFrame(juegos_rellenados)
+df3=pd.DataFrame(covid_rellenado)
+df4=pd.DataFrame(bbc)
+df5=pd.DataFrame(pizza)
+df6=pd.DataFrame(concerts_rellenado)
+df7=pd.DataFrame(fooo_rellenado)
+df8=pd.DataFrame(huff_rellenado)
+df9=pd.DataFrame(phish_rellenado)
+df10=pd.DataFrame(spotify_rellenado)
+
+listaDATOS=[df1, df2, df3, df4, df5, df6, df7, df8, df9, df10]
+listaCOLECCIONES=['ranking_fifa', 'juegos_olimpicos', 'covid-19', 'BBC_News', 'Domino´s pizza', 'Orquesta_NY', 'Comida_rapida', 'HuffPosts', 'Banda:Phish', 'Canciones_Spotify']
+for coleccion in listaCOLECCIONES:
+    colec=db[coleccion]
+    data=listaDATOS[0].to_dict(orient="records")
+    colec.insert_many(data)
+    listaDATOS.pop(0)
+
