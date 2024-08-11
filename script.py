@@ -87,7 +87,7 @@ huff_rellenado.to_sql('HuffPots',  con=conexion, index=False)
 phish_rellenado.to_sql('Phish_Banda', con=conexion, index=False)
 spotify_rellenado.to_sql('Spotify_songs', con=conexion, index=False)
 
-#importación de datos a MONGODB 
+#exportación de datos a MONGODB 
 cliente=pm.MongoClient('mongodb://localhost:27017')
 db=cliente['DATALAKE']
 df1=pd.DataFrame(fifa)
