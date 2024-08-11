@@ -56,10 +56,10 @@ spotify_rellenado.isnull().sum() #limpiado
 #envío de los datasets como tablas a la base de datos definida en la conexión con SQL Server
 fifa.to_sql('fifa_rankings', con, index=False)
 juegos_rellenados.to_sql('juegos_olimpicos', con, index=False)
-covid_rellenado.to_sql('Covid-19', con, index=False)
+covid_rellenado.to_sql('Covid_19', con, index=False)
 bbc.to_sql('BBC_News', con, index=False)
 pizza.to_sql('Dominios_Pizza', con, index=False)
-concerts_rellenado.to_sql('Orquesta de NY', con, index=False)
+concerts_rellenado.to_sql('Orquesta_de_NY', con, index=False)
 fooo_rellenado.to_sql('Comida_rapida_restaurantes', con, index=False)
 huff_rellenado.to_sql('HuffPots', con, index=False)
 phish_rellenado.to_sql('Phish_Banda', con, index=False)
@@ -78,7 +78,7 @@ metadata=db.MetaData()
 
 fifa.to_sql('fifa_rankings', con=conexion, index=False)
 juegos_rellenados.to_sql('juegos_olimpicos',  con=conexion, index=False)
-covid_rellenado.to_sql('Covid-19',  con=conexion, index=False)
+covid_rellenado.to_sql('Covid_19',  con=conexion, index=False)
 bbc.to_sql('BBC_News',  con=conexion, index=False)
 pizza.to_sql('Dominios_Pizza',  con=conexion, index=False)
 concerts_rellenado.to_sql('Orquesta de NY',  con=conexion, index=False)
@@ -102,7 +102,7 @@ df9=pd.DataFrame(phish_rellenado)
 df10=pd.DataFrame(spotify_rellenado)
 
 listaDATOS=[df1, df2, df3, df4, df5, df6, df7, df8, df9, df10]
-listaCOLECCIONES=['ranking_fifa', 'juegos_olimpicos', 'covid-19', 'BBC_News', 'Domino´s pizza', 'Orquesta_NY', 'Comida_rapida', 'HuffPosts', 'Banda:Phish', 'Canciones_Spotify']
+listaCOLECCIONES=['ranking_fifa', 'juegos_olimpicos', 'covid_19', 'BBC_News', 'Domino´s pizza', 'Orquesta_NY', 'Comida_rapida', 'HuffPosts', 'Banda:Phish', 'Canciones_Spotify']
 for coleccion in listaCOLECCIONES:
     colec=db[coleccion]
     data=listaDATOS[0].to_dict(orient="records")
@@ -119,3 +119,15 @@ for colec in listaCOLECCIONES:
     creacion=f'{colec}.csv'
     frame.to_csv(creacion, index=False)
 
+#importacion de datos desde MySQL
+
+tablaBBC=pd.read_sql("SELECT * FROM bbc_new", con)
+tablaFIFA=pd.read_sql("SELECT * FROM fifa_rankings", con)
+tablaHUFF=pd.read_sql("SELECT * FROM huffpots", con)
+tablaCOVID=pd.read_sql("SELECT * FROM covid_19", con)
+tablaCOMIDA=pd.read_sql("SELECT * FROM comida_rapida_restaurantes", con)
+tablaPIZZA=pd.read_sql("SELECT * FROM dominios_pizza", con)
+tablaJUEGOS=pd.read_sql("SELECT *FROM juegos_olimpicos", con)
+tablaORQUESTA=pd.read_sql("SELECT * FROM orquesta_de_ny", con)
+tablaPHISH=pd.read_sql("SELECT * FROM phish_banda", con)
+tablaSPOTIFY=pd.read_sql("SELECT * FROM spotify_songs", con)
