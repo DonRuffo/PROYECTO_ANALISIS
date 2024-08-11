@@ -109,3 +109,13 @@ for coleccion in listaCOLECCIONES:
     colec.insert_many(data)
     listaDATOS.pop(0)
 
+
+#importacion de los datos desde MongoDB
+for colec in listaCOLECCIONES:
+    datos=db[colec].find()
+    
+    frame=pd.DataFrame(list(datos))
+    
+    creacion=f'{colec}.csv'
+    frame.to_csv(creacion, index=False)
+
