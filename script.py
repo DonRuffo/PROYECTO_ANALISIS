@@ -26,7 +26,7 @@ phish=pd.read_csv('phish.csv')
 spotify=pd.read_csv('Spotify_songs/Spotify_songs.csv')
 
 
-#vaerificación de la integridad de los datos y limpieza
+#verificación de la integridad de los datos y limpieza
 fifa.isnull().sum() #limpiado
 juegos.isnull().sum()
 juegos_rellenados=juegos.fillna("0")
@@ -132,7 +132,7 @@ tablaORQUESTA=pd.read_sql("SELECT * FROM orquesta_de_ny", con)
 tablaPHISH=pd.read_sql("SELECT * FROM phish_banda", con)
 tablaSPOTIFY=pd.read_sql("SELECT * FROM spotify_songs", con)
 
-#conversión de los dataframes a archivos CSV
+#conversion de las tablas a archivos CSV
 tablaBBC.to_csv('BBC_News.csv')
 tablaFIFA.to_csv('FIFA.csv')
 tablaHUFF.to_csv('HuffPosts.csv')
