@@ -9,7 +9,7 @@ El presente proyecto fue creado para recopilar datos de temas en categorías com
 
 - [@DennisDiaz](https://www.github.com/DonRuffo)
 - [@MartinAyala](https://github.com/MartinXde23)
-- [@LadyMarin](https://www.github.com/DonRuffo)
+- [@LadyMarin](https://github.com/Lady31)
 
 ## Recursos o herramientas utlizadas
 Las herramientas utilizadas para el completo análisis de los casos de estudio fueron: Python y Jupyter Notebook para la importación, limpieza y conexión de los archivos a los Sistemas Gestores de Bases de Datos, tanto relacionales como no relacionales; también ayudó a la conversión de los Datasets a los diferentes tipos de archivos mediante el uso de las librerías de Python como Pandas, Pymsql, Sqlalchemy, Scipy y Datetime ; MongoDB y CouchDB fueron los SGBD no relacionales para la importación de archivos. MySQL y SQLite como SGBD relacionales para la importación y exportación de archivos sql. Power BI como herramienta principal para la transformación de los datos y creación de los dashboards que contienen las visualizaciones para el análisis de los datos obtenidos.
